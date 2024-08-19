@@ -13,7 +13,7 @@ export default function Navigation({
 }) {
   return (
     <nav
-      class="navbar navbar-expand-lg navbar-light text-light"
+      class="navbar navbar-expand-lg text-light"
       style={{ backgroundColor: " #008080" }}
     >
       <Link
@@ -220,7 +220,7 @@ export default function Navigation({
           </ul>
         ) : (
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active mt-1">
+            <li class="mx-2 nav-item active mt-1">
               <Link
                 to="/login"
                 type="button"
@@ -229,7 +229,7 @@ export default function Navigation({
                 Login
               </Link>
             </li>
-            <li class="nav-item mt-1">
+            <li class="nav-item mt-1 mx-2">
               <Link to="/register" className="btn btn-outline-light">
                 Sign Up
               </Link>
