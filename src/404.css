@@ -1,0 +1,44 @@
+
+  @media only screen and (min-width: 400px) {
+    div.background {
+        background-image: url("../public/404.png");
+        background-size: cover;
+        height: 600px;
+        border: 2px solid rgb(253, 250, 250);
+        opacity: 0.9;
+      }
+      div.transbox {
+        opacity: 0.9 !important;
+        margin: 30px;
+        font-size: 15px;
+        opacity: 0.6;
+      }   
+      div.transbox h3 {
+        margin: 5%;
+        font-weight:bold;
+        color: #e90404;
+      }
+    
+  }
+
+  @media only screen and (max-width: 400px) {
+    div.background {
+        background-image: url("../public/404.png");
+        background-size: cover;
+        border: 2px solid rgb(253, 253, 253);
+        opacity: 0.9;
+      }
+      div.transbox {
+        opacity: 0.9 !important;
+        margin: 30px;
+        font-size: 18px;
+        opacity: 0.6;
+      }   
+      div.transbox h3 {
+        text-align: start;
+        font-size:16px;
+        margin: 5%;
+        font-weight: bold;
+        color: #e90404;
+      }
+  }

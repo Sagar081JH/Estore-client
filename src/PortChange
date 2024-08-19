@@ -1,0 +1,13 @@
+To change port of React app:
+
+ubuntu :
+
+"scripts": {
+"start": "export PORT=3005 && react-scripts start",
+
+windows:
+"scripts": {
+"start": "set PORT=3005 && react-scripts start",
+
+Through terminal command:
+PORT=3005 npm start
