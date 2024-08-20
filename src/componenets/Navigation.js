@@ -10,6 +10,7 @@ export default function Navigation({
   userDetail,
   cartItems,
   handleLogout,
+  filteredProducts,
 }) {
   return (
     <nav
@@ -32,16 +33,46 @@ export default function Navigation({
         </div>
       </Link>
       <form class="row form my-2 mx-1 my-lg-0" onSubmit={handleSearch}>
-        <div className="col-9">
+        <div class="dropdown col-9">
           <input
-            class="form-control mr-sm-2"
+            class="form-control bg-light dropdown-toggle"
             type="search"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
             placeholder="Search for product..."
             aria-label="Search"
             value={searchProduct}
             onChange={(e) => onSearchChange(e)}
-          />
+          ></input>
+          <div
+            class="dropdown-menu px-3 bg-secondary"
+            aria-labelledby="dropdownMenuButton"
+          >
+            {searchProduct.length !== 0 && filteredProducts.length === 0 && (
+              <div className="text-center text-warning px-5">
+                No match found!
+              </div>
+            )}
+            {searchProduct.length !== 0 ? (
+              filteredProducts.map((product) => (
+                <div className="px-5 my-2">
+                  <Link
+                    className="text-decoration-none text-light"
+                    data-bs-toggle="modal"
+                    data-bs-target={`#${product.productId}modal`}
+                  >
+                    {product.title}
+                  </Link>
+                  {filteredProducts.length !== 1 && <hr />}
+                </div>
+              ))
+            ) : (
+              <div className="text-light">Please enter a product name...</div>
+            )}
+          </div>
         </div>
+
         <Link className="col-2" to="/">
           <button class="btn btn-outline-light my-sm-0" type="submit">
             <img
@@ -107,10 +138,10 @@ export default function Navigation({
                 </Link>
               </div>
             </li>
+
             <li class="nav-item dropdown mx-3">
-              <a
+              <span
                 class="nav-link link-light dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -128,7 +159,7 @@ export default function Navigation({
                 >
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                 </svg>
-              </a>
+              </span>
               <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
                 {userDetail && (
                   <div>

@@ -15,6 +15,8 @@ import {
   notifyDeleteProductSuccess,
 } from "../notification/Home";
 import { Base_URL } from "../API/Base_URL";
+import { Link, Route, Routes } from "react-router-dom";
+import Details from "./Details";
 
 export default function ProductCard({
   setCartItems,
@@ -130,8 +132,14 @@ export default function ProductCard({
     <div class="col-sm-3 my-1">
       <div class="card  bg-light">
         <div class="card-body">
-          <h6 class="card-title text-dark">{product.title}</h6>
-          <hr className="" />
+          <Link
+            className="text-decoration-none"
+            data-bs-toggle="modal"
+            data-bs-target={`#${productId}modal`}
+          >
+            <h6 class="card-title text-dark">{product.title}</h6>
+            <hr className="" />
+          </Link>
           <div id={productId} class="carousel carousel-dark carousel slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -175,47 +183,6 @@ export default function ProductCard({
               ></span>
               <span class="visually-hidden">Next</span>
             </button>
-
-            {/* <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 4"
-              ></button>
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="2"
-                aria-label="Slide 3"
-              ></button>
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="3"
-                aria-label="Slide 4"
-              ></button>
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="4"
-                aria-label="Slide 5"
-              ></button>
-              <button
-                type="button"
-                data-bs-target={`#${productId}`}
-                data-bs-slide-to="5"
-                aria-label="Slide 1"
-              ></button>
-            </div> */}
           </div>
 
           <hr className="" />
@@ -232,6 +199,26 @@ export default function ProductCard({
                   Specifications
                 </button>
               </div>
+
+              {/* <Link to="/card/details">Details</Link>
+              <Routes>
+                <Route
+                  path="/card/:details"
+                  element={
+                    <Details
+                      product={product}
+                      handleBuyNow={handleBuyNow}
+                      handleAddToCart={handleAddToCart}
+                      img1={img1}
+                      img2={img2}
+                      img3={img3}
+                      img4={img4}
+                      img5={img5}
+                    />
+                  }
+                ></Route>
+              </Routes> */}
+
               <div
                 class="modal fade"
                 id={productId + "modal"}
@@ -255,6 +242,7 @@ export default function ProductCard({
           <hr className="" />
           <h6 className="">Price : ₹ {product.price}</h6>
           <hr className="" />
+
           <div className="row">
             <span className="col-6 text-start">
               <button

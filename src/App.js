@@ -40,6 +40,8 @@ import MyOrders from "./componenets/MyOrders";
 import AddProduct from "./componenets/AddProduct";
 import { Base_URL } from "./API/Base_URL";
 import Navigation from "./componenets/Navigation";
+import ProductDetails from "./componenets/ProductDetails";
+import Details from "./componenets/Details";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -426,14 +428,6 @@ function App() {
           : sessionStorage.getItem("email");
       if (uname != "") {
         let upwd = sessionStorage.getItem("pwd");
-        let phone1;
-        let email2;
-        if (uname.toString().includes("@")) {
-          email2 = uname;
-        } else {
-          phone1 = parseInt(uname);
-        }
-
         axios
           .post(`${Base_URL}/login`, {
             username: uname,
@@ -507,6 +501,7 @@ function App() {
               userDetail={userDetail}
               cartItems={cartItems}
               handleLogout={handleLogout}
+              filteredProducts={filteredProducts}
             />
           </div>
 
@@ -525,7 +520,7 @@ function App() {
               path="/"
               element={
                 <ProductCards
-                  products={filteredProducts}
+                  products={products}
                   searchInput={searchProduct}
                   userDetail={userDetail}
                   setCartItems={setCartItems}
@@ -657,6 +652,21 @@ function App() {
                 )
               }
             />
+            {/* <Route
+              path="/card/:details"
+              element={
+                <Details
+                  product={product}
+                  handleBuyNow={handleBuyNow}
+                  handleAddToCart={handleAddToCart}
+                  img1={img1}
+                  img2={img2}
+                  img3={img3}
+                  img4={img4}
+                  img5={img5}
+                />
+              }
+            ></Route> */}
           </Routes>
           <Footer />
         </div>
