@@ -31,7 +31,7 @@ import LogoutIcon from "./componenets/LogoutIcon";
 import CartIcon from "./componenets/CartIcon";
 import Cart from "./componenets/Cart";
 import { getCartItems } from "./API/CartAPI";
-import OrderConfirmation from "./componenets/OrderConfirmation";
+
 import {
   notifyRegistrationFailed,
   notifyRegistrationSuccess,
@@ -41,7 +41,6 @@ import AddProduct from "./componenets/AddProduct";
 import { Base_URL } from "./API/Base_URL";
 import Navigation from "./componenets/Navigation";
 import ProductDetails from "./componenets/ProductDetails";
-import Details from "./componenets/ProductDetailsPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -569,7 +568,7 @@ function App() {
                 )
               }
             />
-            <Route path="/order-confirmation" element={<OrderConfirmation />} />
+
             <Route
               path="/login"
               element={

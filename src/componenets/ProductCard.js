@@ -127,7 +127,7 @@ export default function ProductCard({
   }
 
   return (
-    <div class="col-sm-3 my-1 product-card rounded-3 bg-light">
+    <div class="col-sm-3 my-1 rounded-3 bg-light boxShadow">
       <div class="card rounded-3 bg-light border border-info my-2">
         <div class="card-body">
           <Link
@@ -135,7 +135,9 @@ export default function ProductCard({
             data-bs-toggle="modal"
             data-bs-target={`#${productId}modal`}
           >
-            <h6 class="card-title text-dark">{product.title}</h6>
+            <span class="card-title text-dark boxShadow rounded p-1">
+              {product.title}
+            </span>
             <hr className="" />
           </Link>
           <div id={productId} class="carousel carousel-dark carousel slide">
@@ -190,7 +192,7 @@ export default function ProductCard({
               <div className="text-center my-1 py-1 ">
                 <button
                   href=""
-                  className="btn btn-outline-info rounded-4 rounded"
+                  className="btn text-primary rounded-4 boxShadow"
                   data-bs-toggle="modal"
                   data-bs-target={`#${productId}modal`}
                 >
@@ -245,7 +247,7 @@ export default function ProductCard({
             <span className="col-6 text-start">
               {isAuthenticated ? (
                 <button
-                  className="btn btn-warning rounded-4"
+                  className="btn btn-warning rounded-4  boxShadow rounded"
                   data-toggle="tooltip"
                   data-placement="top"
                   title="Add to Cart"
@@ -261,7 +263,7 @@ export default function ProductCard({
               ) : (
                 <Link
                   to="/login"
-                  className="btn btn-warning rounded-4"
+                  className="btn btn-warning rounded-4  boxShadow rounded"
                   data-toggle="tooltip"
                   data-placement="top"
                   title="Add to Cart"
@@ -280,7 +282,7 @@ export default function ProductCard({
             <span className="col-6 text-end">
               {isAuthenticated ? (
                 <button
-                  className="btn btn-primary rounded-4"
+                  className="btn btn-primary rounded-4 boxShadow rounded"
                   onClick={(e) => handleBuyNow(e)}
                 >
                   Buy now
@@ -288,7 +290,7 @@ export default function ProductCard({
               ) : (
                 <Link
                   to="/login"
-                  className="btn btn-primary rounded-4"
+                  className="btn btn-primary rounded-4  boxShadow rounded"
                   onClick={(e) => handleBuyNow(e)}
                 >
                   Buy now

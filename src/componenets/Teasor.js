@@ -40,7 +40,7 @@ export default function Teasor() {
         </div>
       </div>
       <a
-        class="car-btn carousel-control-prev mx-2 rounded-1"
+        class="car-btn carousel-control-prev mx-2 rounded-1 boxShadow"
         href="#carouselExampleIndicators"
         role="button"
         data-slide="prev"
@@ -48,7 +48,7 @@ export default function Teasor() {
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </a>
       <a
-        class="car-btn carousel-control-next mx-2 rounded-1"
+        class="car-btn carousel-control-next mx-2 rounded-1 boxShadow"
         href="#carouselExampleIndicators"
         role="button"
         data-slide="next"

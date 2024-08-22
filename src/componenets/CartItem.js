@@ -4,7 +4,7 @@ import CartSpecsCollapse from "./CartSpecsCollapse";
 export default function CartItem({ key, cartItem, handleRemoveCartItem }) {
   return (
     <div>
-      <div class="card mb-3 pb-3 bg-light border border-info p-1">
+      <div class="card mb-3 pb-3 bg-light border border-info p-1 boxShadow">
         <div class="card-body bg-light">
           <div className="row">
             <div className="col-6">

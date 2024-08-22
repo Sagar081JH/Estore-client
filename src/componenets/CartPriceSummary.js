@@ -122,7 +122,7 @@ export default function CartPriceSummary({
     <div className="">
       {totalPrice !== "Empty cart!" && (
         <div>
-          <div class="card  bg-light">
+          <div class="card bg-light boxShadow rounded">
             <div class="card-body border border-light rounded-4 bg-light">
               <h5 class="card-title text-start text-dark">Price Details</h5>
 
@@ -159,10 +159,10 @@ export default function CartPriceSummary({
               </div>
             </div>
           </div>
-          <div className="text-end my-2">
+          <div className="text-end my-2 boxShadow rounded">
             <button
               type="button"
-              className="btn btn-outline-success w-100 p-2 rounded-4"
+              className="btn btn-outline-success w-100 p-2 boxShadow"
               data-toggle="modal"
               data-target="#exampleModalCenter"
             >
@@ -366,7 +366,7 @@ export default function CartPriceSummary({
                   </div>
                   <div class="modal-footer">
                     <button
-                      className="btn btn-outline-success w-100 p-2 rounded-4"
+                      className="btn w-100 p-2 rounded-4 boxShadow"
                       data-dismiss="modal"
                       aria-label="Close"
                       onClick={() => handleOrderPlaced(cartItems)}

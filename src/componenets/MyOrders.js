@@ -53,15 +53,20 @@ export default function MyOrders(userId) {
   let count = 1;
   return (
     <div className="container p-4">
-      <div className="mt-4 text-primary fs-4">Orders ({myOrders.length})</div>
+      <div className="mt-4 text-primary fs-4 text-center">
+        <span className="p-2 boxShadow rounded">
+          {" "}
+          Orders ({myOrders.length})
+        </span>
+      </div>
 
       {myOrders && myOrders.length !== 0 ? (
         <div className="row">
           {myOrders.map((order) => (
             <div class="col-12 col-sm-6 my-3">
-              <h6>{count++}</h6>
-              <div class="card  bg-light">
-                <div class="card-body">
+              <span className="boxShadow p-2 rounded">{count++}</span>
+              <div class="card bg-light">
+                <div class="card-body boxShadow">
                   <div>
                     <span className="text-info" style={{ fontSize: "12px" }}>
                       Product Name

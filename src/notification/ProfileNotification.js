@@ -6,7 +6,7 @@ export const notifyUpdateSuccess = () => {
   toast.success("Updated !", {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -20,7 +20,7 @@ export const notifyUpdateFailuere = () => {
   toast.error("Failed to update due to network error !", {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,

@@ -3,10 +3,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Flip } from "react-toastify";
 
 export const notifyBuyNowSuccess = () => {
-  toast.success(`__Thank you for shopping !__ Account > my orders.`, {
+  toast.success(`!!!! Thank you for shopping !!!! check Account > my orders.`, {
     position: "top-right",
     autoClose: 6000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -20,7 +20,7 @@ export const notifyBuyNowFailed = () => {
   toast.error(`Order Failed !`, {
     position: "top-right",
     autoClose: 6000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -34,7 +34,7 @@ export const notifyDeleteProductSuccess = () => {
   toast.success("Deleted !", {
     position: "top-right",
     autoClose: 6000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -48,7 +48,7 @@ export const notifyDeleteProductFailed = () => {
   toast.error(`deletion failed !`, {
     position: "top-right",
     autoClose: 6000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,

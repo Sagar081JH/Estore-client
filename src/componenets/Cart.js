@@ -101,17 +101,29 @@ export default function Cart({
       {isAuthenticated && (
         <div className="px-5">
           <div className="text-center text-success p-2">
-            {cartItems.length == 0 && (
+            {cartItems.length === 0 && (
               <div className="text-primary p-5">
                 {isOrderPlaced ? (
-                  <div className="text-success bg-light">
-                    <h4 className="text-primary my-5">
-                      Thank you {userDetails.user.firstName} for shopping at
-                      E-store !
+                  <div className="boxShadow text-success bg-light p-3 rounded-3 my-3">
+                    <h4 className="text-dark my-5">
+                      Thanks{" "}
+                      <span className="text-primary">
+                        {userDetails.user.firstName}
+                      </span>{" "}
+                      for shopping at E-store !
+                      <hr />
                     </h4>
-                    <h6>Your Order is placed successfully!</h6>
-                    <span>Track your oders here: </span>
-                    <Link to="/orders" className="link-primary">
+
+                    <h6 className="my-5">
+                      !!! Your Order has been placed successfully !!!
+                    </h6>
+                    <span className="text-danger">
+                      Track your orders here :
+                    </span>
+                    <Link
+                      to="/orders"
+                      className="btn btn-outline-primary rounded-3 mx-3"
+                    >
                       My Orders
                     </Link>
                   </div>

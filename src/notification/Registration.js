@@ -6,7 +6,7 @@ export const notifyRegistrationSuccess = () => {
   toast.success("Registration Successful !", {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -20,7 +20,7 @@ export const notifyRegistrationFailed = () => {
   toast.error("Registration Failed due to network error!", {
     position: "top-right",
     autoClose: 2000,
-    hideProgressBar: true,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,

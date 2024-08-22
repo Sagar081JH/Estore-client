@@ -21,7 +21,7 @@ export default function Navigation({
         class="mx-2 navbar-brand fs-4 link-light text-decoration-none"
         to="/"
       >
-        <div className="text-start">
+        <div className="text-start boxShadow rounded-3">
           <img
             className="bg-light rounded-5"
             height="30vh"
@@ -107,12 +107,12 @@ export default function Navigation({
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         {isAuthenticated ? (
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active mt-2 mx-3">
+            <li class="nav-item active mt-2 mx-3 boxShadow p-1 rounded">
               <span class="sr-only">
                 Welcome, {userDetail.user.firstName} &#128522;
               </span>
             </li>
-            <li class="nav-item mx-3 mt-2">
+            <li class="nav-item mx-3 mt-2 boxShadow p-1 rounded">
               <div>
                 <Link to="/cart" className="rounded-4 text-decoration-none">
                   <span className="cartIcon text-light">Cart</span>
@@ -124,7 +124,7 @@ export default function Navigation({
                   data-placement="top"
                   title="cart"
                 >
-                  <span className="fs-6">
+                  <span className="fs-6 ">
                     <a class="" style={{ position: "relative" }}>
                       <span class="badge badge-light text-info">&#x1F6D2;</span>
                       <i
@@ -145,9 +145,9 @@ export default function Navigation({
               </div>
             </li>
 
-            <li class="nav-item dropdown mx-3">
+            <li class="nav-item dropdown mx-3 ">
               <span
-                class="nav-link link-light dropdown-toggle"
+                class="nav-link link-light dropdown-toggle boxShadow rounded"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -169,27 +169,35 @@ export default function Navigation({
               <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
                 {userDetail && (
                   <div>
-                    <div className="my-2">
+                    <div className="my-2 p-1 boxShadow rounded">
                       {userDetail.user.firstName +
                         " " +
                         userDetail.user.lastName}
                     </div>
-                    <div className="my-2">{userDetail.credentials.email}</div>
-                    <div className="my-2">
+                    <div className="my-2 p-1 boxShadow rounded">
+                      {userDetail.credentials.email}
+                    </div>
+                    <div className="my-2 p-1 boxShadow rounded">
                       {userDetail.credentials.phoneNumber}
                     </div>
                   </div>
                 )}
-                <Link to="/profile" className="btn link-primary rounded-3">
-                  Profile &#x27A3;
+                <Link
+                  to="/profile"
+                  className="btn link-primary mx-2 rounded-3 boxShadow my-3"
+                >
+                  Profile
                 </Link>
 
-                <Link to="/orders" className="btn link-primary rounded-3">
-                  My Orders &#x27A3;
+                <Link
+                  to="/orders"
+                  className="btn link-primary rounded-3 boxShadow"
+                >
+                  My Orders
                 </Link>
               </div>
             </li>
-            <li class="nav-item mt-1">
+            <li class="nav-item mt-1 boxShadow rounded">
               <div className="mx-2 mt-1">
                 <span
                   className="text-light"
@@ -257,17 +265,13 @@ export default function Navigation({
           </ul>
         ) : (
           <ul class="navbar-nav mr-auto">
-            <li class="mx-2 nav-item active mt-1">
-              <Link
-                to="/login"
-                type="button"
-                class="mx-2 btn btn-outline-light"
-              >
+            <li class="mx-2 nav-item active mt-1 boxShadow rounded">
+              <Link to="/login" type="button " class="mx-2 btn text-light">
                 Login
               </Link>
             </li>
-            <li class="nav-item mt-1 mx-2">
-              <Link to="/sign-up" className="btn btn-outline-light">
+            <li class="nav-item mt-1 mx-2 boxShadow rounded">
+              <Link to="/sign-up" className="btn text-light ">
                 Sign Up
               </Link>
             </li>
