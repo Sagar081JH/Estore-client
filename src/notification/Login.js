@@ -17,7 +17,7 @@ export const notifyLoggedIn = () => {
 };
 
 export const notifyLoginFailed = () => {
-  toast.error("Logged in Failed!", {
+  toast.error("Login Failed!", {
     position: "top-right",
     autoClose: 2000,
     hideProgressBar: true,

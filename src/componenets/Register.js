@@ -45,6 +45,8 @@ export default function Register({
   isRegistrationSuccess,
   clearRegistrationForm,
   dobError,
+  showLoginPwd,
+  setShowLoginPwd,
 }) {
   const [countryList, setCountryList] = useState([]);
   const [indianStateList, setIndianStateList] = useState([]);
@@ -221,7 +223,7 @@ export default function Register({
               </div>
 
               <input
-                type="text"
+                type={`${showLoginPwd ? "text" : "password"}`}
                 class="form-control border border-info"
                 id="pwd"
                 value={pwd}
@@ -238,12 +240,27 @@ export default function Register({
                 </span>
               </div>
               <input
-                type="text"
+                type={`${showLoginPwd ? "text" : "password"}`}
                 class="form-control border border-info"
                 id="confirmPwd"
                 value={confirmPwd}
                 onChange={(e) => setConfirmPwd(e.target.value)}
               />
+              <div class="form-check my-2">
+                <input
+                  checked={showLoginPwd}
+                  type="checkbox"
+                  class="form-check-input text-center"
+                  id="exampleCheck1"
+                  onClick={() => setShowLoginPwd(!showLoginPwd)}
+                />
+                <label
+                  className="form-check-label text-primary"
+                  for="exampleCheck1"
+                >
+                  {showLoginPwd ? "Hide passwords" : "Show passwords"}
+                </label>
+              </div>
             </div>
             <h5 className="text-start text-info">Address:</h5>
             <hr />

@@ -16,7 +16,6 @@ import {
 } from "../notification/Home";
 import { Base_URL } from "../API/Base_URL";
 import { Link, Route, Routes } from "react-router-dom";
-import Details from "./ProductDetailsPage";
 
 export default function ProductCard({
   setCartItems,

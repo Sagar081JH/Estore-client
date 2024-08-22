@@ -639,6 +639,8 @@ function App() {
                   isRegistrationSuccess={isRegistrationSuccess}
                   clearRegistrationForm={clearRegistrationForm}
                   dobError={dobError}
+                  showLoginPwd={showLoginPwd}
+                  setShowLoginPwd={setShowLoginPwd}
                 />
               }
             />

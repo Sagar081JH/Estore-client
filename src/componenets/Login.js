@@ -66,7 +66,7 @@ export default function Login({
               className="form-check-label text-primary"
               for="exampleCheck1"
             >
-              Show password
+              {showLoginPwd ? "Hide" : "Show"} password
             </label>
           </div>
         </div>
