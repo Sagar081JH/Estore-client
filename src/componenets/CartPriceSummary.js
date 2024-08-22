@@ -122,7 +122,7 @@ export default function CartPriceSummary({
     <div className="">
       {totalPrice !== "Empty cart!" && (
         <div>
-          <div class="card bg-light boxShadow rounded">
+          <div class="card bg-light boxShadow rounded mt-4">
             <div class="card-body border border-light rounded-4 bg-light">
               <h5 class="card-title text-start text-dark">Price Details</h5>
 
