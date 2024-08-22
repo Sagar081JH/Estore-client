@@ -32,10 +32,13 @@ export default function Navigation({
           <span className="hoverTitle mx-1">&#x2208;-store</span>
         </div>
       </Link>
-      <form class="row form my-2 mx-1 my-lg-0" onSubmit={handleSearch}>
-        <div class="dropdown col-9">
+      <form
+        class="row form my-2 mx-1  form-inline my-lg-0"
+        onSubmit={handleSearch}
+      >
+        <div class="col-9 dropdown">
           <input
-            class="form-control bg-light dropdown-toggle"
+            className="dropdown-toggle border border-info search-input p-2"
             type="search"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -44,9 +47,9 @@ export default function Navigation({
             aria-label="Search"
             value={searchProduct}
             onChange={(e) => onSearchChange(e)}
-          ></input>
+          />
           <div
-            class="dropdown-menu px-3 bg-secondary"
+            class="searchdropdown dropdown-menu p-2 bg-light"
             aria-labelledby="dropdownMenuButton"
           >
             {searchProduct.length !== 0 && filteredProducts.length === 0 && (
@@ -58,7 +61,7 @@ export default function Navigation({
               filteredProducts.map((product) => (
                 <div className="px-5 my-2">
                   <Link
-                    className="text-decoration-none text-light"
+                    className="text-decoration-none text-success"
                     data-bs-toggle="modal"
                     data-bs-target={`#${product.productId}modal`}
                   >
@@ -68,18 +71,21 @@ export default function Navigation({
                 </div>
               ))
             ) : (
-              <div className="text-light">Please enter a product name...</div>
+              <div className="text-muted">e.g.: iphone 14</div>
             )}
           </div>
         </div>
-
-        <Link className="col-2" to="/">
-          <button class="btn btn-outline-light my-sm-0" type="submit">
+        <Link className="col-2 form-inline" to="/">
+          <button
+            class="p-2 btn btn-light border border-info"
+            type="submit"
+            className="p-2 border border-info search-btn"
+          >
             <img
               src={require("../Img/search.jpg")}
               height="20vh"
               width="20vw"
-              className="rounded-2"
+              className="rounded-5"
               alt="icon"
             ></img>
           </button>
@@ -261,7 +267,7 @@ export default function Navigation({
               </Link>
             </li>
             <li class="nav-item mt-1 mx-2">
-              <Link to="/register" className="btn btn-outline-light">
+              <Link to="/sign-up" className="btn btn-outline-light">
                 Sign Up
               </Link>
             </li>

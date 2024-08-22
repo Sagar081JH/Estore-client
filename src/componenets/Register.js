@@ -75,7 +75,7 @@ export default function Register({
   };
 
   return (
-    <div class="container p-5 bg-light my-2 rounded-5 register">
+    <div class="container bg-light my-3 rounded-3 register">
       <div class="modal-content">
         <div class="modal-header row">
           <div className="text-start col-6">

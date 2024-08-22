@@ -12,10 +12,13 @@ export default function ProductDetails({
 }) {
   return (
     <div>
-      <div class="modal-dialog bg-dark text-light rounded-3">
-        <div class="modal-content bg-dark text-light">
-          <div class="modal-header bg-dark text-light">
-            <h5 class="modal-title text-info" id={product.productId + "modal"}>
+      <div class="modal-dialog bg-light text-dark rounded-3">
+        <div class="modal-content bg-light text-light">
+          <div class="modal-header bg-light text-light">
+            <h5
+              class="modal-title text-success"
+              id={product.productId + "modal"}
+            >
               {product.title}
             </h5>
             <button
@@ -140,13 +143,13 @@ export default function ProductDetails({
             </div>
 
             <div className="text-center py-2">
-              <h4 className="text-info ">
-                <span className="border border-info rounded p-2">
+              <h4 className="text-success ">
+                <span className="border border-success rounded p-2">
                   ₹ {product.price}/-
                 </span>
               </h4>
             </div>
-            <table class="table table-dark text-start">
+            <table class="table table-light text-start">
               <thead>
                 <tr>
                   <th scope="col"></th>

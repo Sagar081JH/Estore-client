@@ -1,7 +1,6 @@
 .App {
   text-align: center;
 }
-
 /* body{
   background-color: rgb(156, 221, 233);
 } */
@@ -92,18 +91,65 @@
 
 @media only screen and (min-width: 900px) {
   .login{
-    width: 45vw;
+    width: 35vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .register{
     width: 60vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+    div.searchdropdown {
+      width: 22vw !important;
+    }
+  .car-btn{
+    margin-top: 7vh;
+    width: 3vw;
+    height: 25vh;
+    background-color: #008080;
+  }
+} 
+
+.product-card{
+  box-shadow: 0 4px 8px 0 rgba(102, 101, 101, 0.2), 0 6px 20px 0 rgba(180, 180, 180, 0.19);
 }
 
 @media only screen and (max-width: 900px) {
   .login{
     width: 95vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   .register{
     width: 95vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+  div.searchdropdown {
+    width: 77vw !important;
+  }
+
+  .car-btn {
+      width: 3vw;
+      height: 6vh;
+      background-color: #008080;
+  }
+  
 }
+
+.search-input{
+  border-radius: 10px 0px 0px 10px;
+  border-right: 0px solid white;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+
+.search-btn{
+  border-radius: 0px 10px 10px 0px;
+  border-left: 0px solid white;
+}
+
+.msg{
+  color: red;
+}
+
+

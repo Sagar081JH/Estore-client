@@ -16,7 +16,7 @@ import {
 } from "../notification/Home";
 import { Base_URL } from "../API/Base_URL";
 import { Link, Route, Routes } from "react-router-dom";
-import Details from "./Details";
+import Details from "./ProductDetailsPage";
 
 export default function ProductCard({
   setCartItems,
@@ -47,7 +47,7 @@ export default function ProductCard({
           });
       }
     } else {
-      e.preventDefault();
+      //e.preventDefault();
       notifyToLoginFirst();
     }
   };
@@ -73,7 +73,6 @@ export default function ProductCard({
           console.error("buy now :", error);
         });
     } else {
-      e.preventDefault();
       notifyToLoginFirst();
     }
   };
@@ -129,8 +128,8 @@ export default function ProductCard({
   }
 
   return (
-    <div class="col-sm-3 my-1">
-      <div class="card  bg-light">
+    <div class="col-sm-3 my-1 product-card rounded-3 bg-light">
+      <div class="card rounded-3 bg-light border border-info my-2">
         <div class="card-body">
           <Link
             className="text-decoration-none"
@@ -192,7 +191,7 @@ export default function ProductCard({
               <div className="text-center my-1 py-1 ">
                 <button
                   href=""
-                  className="btn btn-outline-info rounded-4 rounded p-2"
+                  className="btn btn-outline-info rounded-4 rounded"
                   data-bs-toggle="modal"
                   data-bs-target={`#${productId}modal`}
                 >
@@ -245,29 +244,57 @@ export default function ProductCard({
 
           <div className="row">
             <span className="col-6 text-start">
-              <button
-                className="btn btn-warning rounded-4"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Add to Cart"
-                onClick={(e) => handleAddToCart(e)}
-              >
-                {/* <img
+              {isAuthenticated ? (
+                <button
+                  className="btn btn-warning rounded-4"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Add to Cart"
+                  onClick={(e) => handleAddToCart(e)}
+                >
+                  {/* <img
                   height={"35px"}
                   className="rounded"
                   src={require("./cart1.png")}
                 /> */}
-                <CartIcon />
-              </button>
+                  <CartIcon />
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-warning rounded-4"
+                  data-toggle="tooltip"
+                  data-placement="top"
+                  title="Add to Cart"
+                  onClick={(e) => handleAddToCart(e)}
+                >
+                  {/* <img
+                  height={"35px"}
+                  className="rounded"
+                  src={require("./cart1.png")}
+                /> */}
+                  <CartIcon />
+                </Link>
+              )}
             </span>
 
             <span className="col-6 text-end">
-              <button
-                className="btn btn-primary rounded-4"
-                onClick={(e) => handleBuyNow(e)}
-              >
-                Buy now
-              </button>
+              {isAuthenticated ? (
+                <button
+                  className="btn btn-primary rounded-4"
+                  onClick={(e) => handleBuyNow(e)}
+                >
+                  Buy now
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-primary rounded-4"
+                  onClick={(e) => handleBuyNow(e)}
+                >
+                  Buy now
+                </Link>
+              )}
             </span>
           </div>
           {isAuthenticated && userDetail.user.role === "ADMIN" && (

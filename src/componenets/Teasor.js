@@ -40,20 +40,18 @@ export default function Teasor() {
         </div>
       </div>
       <a
-        class="carousel-control-prev my-5 mb-2 rounded-2"
+        class="car-btn carousel-control-prev mx-2 rounded-1"
         href="#carouselExampleIndicators"
         role="button"
         data-slide="prev"
-        style={{ width: "3vw", height: "25vh", backgroundColor: " #008080" }}
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </a>
       <a
-        class="carousel-control-next my-5 mb-2 rounded-2"
+        class="car-btn carousel-control-next mx-2 rounded-1"
         href="#carouselExampleIndicators"
         role="button"
         data-slide="next"
-        style={{ width: "3vw", height: "25vh", backgroundColor: " #008080" }}
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>

@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import "./SearchBar.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
   redirect,
   Navigate,
 } from "react-router-dom";
@@ -41,7 +41,7 @@ import AddProduct from "./componenets/AddProduct";
 import { Base_URL } from "./API/Base_URL";
 import Navigation from "./componenets/Navigation";
 import ProductDetails from "./componenets/ProductDetails";
-import Details from "./componenets/Details";
+import Details from "./componenets/ProductDetailsPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -594,7 +594,7 @@ function App() {
               }
             />
             <Route
-              path="/register"
+              path="/sign-up"
               element={
                 <Register
                   handleRegister={handleRegister}

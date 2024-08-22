@@ -1,6 +1,5 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import { Link, Route, Routes } from "react-router-dom";
 import Teasor from "./Teasor";
 
 export default function ProductCards({
@@ -34,12 +33,12 @@ export default function ProductCards({
           <span className="text-primary fs-5"> {searchInput}</span>
         </div>
       )} */}
-        <div className="fs-5 text-center my-2 ">
+        <div className="fs-5 text-start my-2 ">
           <span
             className="p-2 rounded-2 text-light"
             style={{ backgroundColor: "#008080" }}
           >
-            Smart Phones
+            Featured products
           </span>
         </div>
         {products.map((product) => (

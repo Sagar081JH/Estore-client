@@ -17,8 +17,8 @@ export default function Login({
   resetLoginForm,
 }) {
   return (
-    <div className="container p-5 bg-light my-3 rounded-5 login">
-      <div className="text-center fs-3 text-primary">Login</div>
+    <div className="container bg-light my-5 rounded-3 login">
+      <div className="text-center fs-3 text-success mt-2">Login</div>
       <form onSubmit={(e) => hangleLogin(e)}>
         <div class="mb-3">
           <div className="row">
@@ -132,7 +132,7 @@ export default function Login({
           </div>
 
           <div className="text-center my-3">
-            <Link to="/register" className="link-primary text-decoration-none">
+            <Link to="/sign-up" className="link-primary text-decoration-none">
               New here ? Please Register
             </Link>
           </div>
