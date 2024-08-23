@@ -212,7 +212,12 @@ export default function Navigation({
                   data-target="#logout"
                   style={{ cursor: "pointer" }}
                 >
-                  <span className="hoverLink mx-2 text-warning">Log-out</span>
+                  <span
+                    className="hoverLink mx-2 text-warning"
+                    onClick={(e) => handleLogout(e)}
+                  >
+                    Log-out
+                  </span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -231,7 +236,7 @@ export default function Navigation({
                     />
                   </svg>
                 </span>
-                <div
+                {/* <div
                   class="modal fade"
                   id="logout"
                   tabindex="-1"
@@ -266,7 +271,7 @@ export default function Navigation({
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </li>
           </ul>

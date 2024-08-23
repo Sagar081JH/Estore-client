@@ -474,36 +474,36 @@ function App() {
 
   return (
     <Router>
-      {products && products.length > 0 ? (
+      <div className="">
+        <ToastContainer />
         <div className="">
-          <ToastContainer />
-          <div className="">
-            <Navigation
-              isAuthenticated={isAuthenticated}
-              searchProduct={searchProduct}
-              onSearchChange={onSearchChange}
-              handleSearch={handleSearch}
-              userDetail={userDetail}
-              cartItems={cartItems}
-              handleLogout={handleLogout}
-              filteredProducts={filteredProducts}
-            />
+          <Navigation
+            isAuthenticated={isAuthenticated}
+            searchProduct={searchProduct}
+            onSearchChange={onSearchChange}
+            handleSearch={handleSearch}
+            userDetail={userDetail}
+            cartItems={cartItems}
+            handleLogout={handleLogout}
+            filteredProducts={filteredProducts}
+          />
+        </div>
+
+        {isAuthenticated && userDetail.user.role === "ADMIN" && (
+          <div
+            className={`text-center mt-3 pt-5 boxShadow ${
+              healthStatus === "UP" ? "text-success" : "text-danger"
+            }`}
+          >
+            Application Health Status : {healthStatus}
           </div>
+        )}
 
-          {isAuthenticated && userDetail.user.role === "ADMIN" && (
-            <div
-              className={`text-center mt-3 pt-5 boxShadow ${
-                healthStatus === "UP" ? "text-success" : "text-danger"
-              }`}
-            >
-              Application Health Status : {healthStatus}
-            </div>
-          )}
-
-          <Routes>
-            <Route
-              path="/"
-              element={
+        <Routes>
+          <Route
+            path="/"
+            element={
+              products && products.length > 0 ? (
                 <ProductCards
                   products={products}
                   searchInput={searchProduct}
@@ -512,137 +512,134 @@ function App() {
                   isAuthenticated={isAuthenticated}
                   cartItems={cartItems}
                 />
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                isAuthenticated ? (
-                  <Profile userDetail={userDetail} handleLogin={handleLogin} />
-                ) : (
-                  <Navigate to="/" />
-                )
-              }
-            />
-            <Route
-              path="/*"
-              element={
-                <ErrorPage
-                  filteredProducts={filteredProducts}
-                  msg={productsLoadMsg}
+              ) : (
+                <ErrorPage />
+              )
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              isAuthenticated ? (
+                <Profile userDetail={userDetail} handleLogin={handleLogin} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <ErrorPage
+                filteredProducts={filteredProducts}
+                msg={productsLoadMsg}
+              />
+            }
+          />
+          <Route path="/about-us" element={<AboutUs msg={productsLoadMsg} />} />
+          <Route
+            path="/cart"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/" />
+              ) : (
+                <Cart
+                  isAuthenticated={isAuthenticated}
+                  userDetails={userDetail}
+                  setCartItems1={setCartItems}
+                  handleLogin={handleLogin}
                 />
-              }
-            />
-            <Route
-              path="/about-us"
-              element={<AboutUs msg={productsLoadMsg} />}
-            />
-            <Route
-              path="/cart"
-              element={
-                !isAuthenticated ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Cart
-                    isAuthenticated={isAuthenticated}
-                    userDetails={userDetail}
-                    setCartItems1={setCartItems}
-                    handleLogin={handleLogin}
-                  />
-                )
-              }
-            />
+              )
+            }
+          />
 
-            <Route
-              path="/login"
-              element={
-                isAuthenticated ? (
-                  <Navigate to="/" />
-                ) : (
-                  <Login
-                    hangleLogin={hangleLogin}
-                    loginEmailOrPhoneError={loginEmailOrPhoneError}
-                    loginEmailOrPhone={loginEmailOrPhone}
-                    setLoginEmailOrPhonesetEmail={setLoginEmailOrPhonesetEmail}
-                    loginPwdError={loginPwdError}
-                    showLoginPwd={showLoginPwd}
-                    loginPwd={loginPwd}
-                    setLoginPwd={setLoginPwd}
-                    setShowLoginPwd={setShowLoginPwd}
-                    isAuthenticated={isAuthenticated}
-                    loginFailedMsg={loginFailedMsg}
-                    resetLoginForm={resetLoginForm}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/sign-up"
-              element={
-                <Register
-                  handleRegister={handleRegister}
-                  gender={gender}
-                  setGender={setGender}
-                  firstNameError={firstNameError}
-                  firstName={firstName}
-                  setFirstName={setFirstName}
-                  lastNameError={lastNameError}
-                  lastName={lastName}
-                  setLastName={setLastName}
-                  dob={dob}
-                  setDob={setDob}
-                  emailError={emailError}
-                  email={email}
-                  setEmail={setEmail}
-                  phoneError={phoneError}
-                  phoneNo={phoneNo}
-                  setPhoneNo={setPhoneNo}
-                  pwdError={pwdError}
-                  pwd={pwd}
-                  setPwd={setPwd}
-                  confirmPwdError={confirmPwdError}
-                  pwdMissMatch={pwdMissMatch}
-                  confirmPwd={confirmPwd}
-                  setConfirmPwd={setConfirmPwd}
-                  areaError={areaError}
-                  area={area}
-                  setArea={setArea}
-                  cityError={cityError}
-                  city={city}
-                  setCity={setCity}
-                  state1Error={state1Error}
-                  state1={state1}
-                  setState1={setState1}
-                  countryError={countryError}
-                  country={country}
-                  setCountry={setCountry}
-                  pincodeError={pincodeError}
-                  pincode={pincode}
-                  setPincode={setPincode}
-                  isRegistrationSuccess={isRegistrationSuccess}
-                  clearRegistrationForm={clearRegistrationForm}
-                  dobError={dobError}
+          <Route
+            path="/login"
+            element={
+              isAuthenticated ? (
+                <Navigate to="/" />
+              ) : (
+                <Login
+                  hangleLogin={hangleLogin}
+                  loginEmailOrPhoneError={loginEmailOrPhoneError}
+                  loginEmailOrPhone={loginEmailOrPhone}
+                  setLoginEmailOrPhonesetEmail={setLoginEmailOrPhonesetEmail}
+                  loginPwdError={loginPwdError}
                   showLoginPwd={showLoginPwd}
+                  loginPwd={loginPwd}
+                  setLoginPwd={setLoginPwd}
                   setShowLoginPwd={setShowLoginPwd}
+                  isAuthenticated={isAuthenticated}
+                  loginFailedMsg={loginFailedMsg}
+                  resetLoginForm={resetLoginForm}
                 />
-              }
-            />
-            <Route
-              path="/orders"
-              element={
-                !isAuthenticated ? (
-                  <Navigate to="/" />
-                ) : (
-                  <MyOrders userId={sessionStorage.getItem("user_id")} />
-                )
-              }
-            />
-          </Routes>
-          <Footer />
-        </div>
-      ) : (
-        <ErrorPage />
-      )}
+              )
+            }
+          />
+          <Route
+            path="/sign-up"
+            element={
+              <Register
+                handleRegister={handleRegister}
+                gender={gender}
+                setGender={setGender}
+                firstNameError={firstNameError}
+                firstName={firstName}
+                setFirstName={setFirstName}
+                lastNameError={lastNameError}
+                lastName={lastName}
+                setLastName={setLastName}
+                dob={dob}
+                setDob={setDob}
+                emailError={emailError}
+                email={email}
+                setEmail={setEmail}
+                phoneError={phoneError}
+                phoneNo={phoneNo}
+                setPhoneNo={setPhoneNo}
+                pwdError={pwdError}
+                pwd={pwd}
+                setPwd={setPwd}
+                confirmPwdError={confirmPwdError}
+                pwdMissMatch={pwdMissMatch}
+                confirmPwd={confirmPwd}
+                setConfirmPwd={setConfirmPwd}
+                areaError={areaError}
+                area={area}
+                setArea={setArea}
+                cityError={cityError}
+                city={city}
+                setCity={setCity}
+                state1Error={state1Error}
+                state1={state1}
+                setState1={setState1}
+                countryError={countryError}
+                country={country}
+                setCountry={setCountry}
+                pincodeError={pincodeError}
+                pincode={pincode}
+                setPincode={setPincode}
+                isRegistrationSuccess={isRegistrationSuccess}
+                clearRegistrationForm={clearRegistrationForm}
+                dobError={dobError}
+                showLoginPwd={showLoginPwd}
+                setShowLoginPwd={setShowLoginPwd}
+              />
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/" />
+              ) : (
+                <MyOrders userId={sessionStorage.getItem("user_id")} />
+              )
+            }
+          />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }
