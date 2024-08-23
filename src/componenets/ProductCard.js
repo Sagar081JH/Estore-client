@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductDetails from "./ProductDetails";
 import CartIcon from "./CartIcon";
 import axios from "axios";
@@ -15,7 +15,7 @@ import {
   notifyDeleteProductSuccess,
 } from "../notification/Home";
 import { Base_URL } from "../API/Base_URL";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import OrderConfirmation from "./OrderConfirmation";
 
 export default function ProductCard({
@@ -137,7 +137,7 @@ export default function ProductCard({
             data-bs-toggle="modal"
             data-bs-target={`#${productId}modal`}
           >
-            <span class="card-title text-primary boxShadow rounded p-1">
+            <span class="card-title text-success boxShadow rounded p-2">
               {product.title}
             </span>
             <hr className="" />

@@ -5,7 +5,6 @@ import {
   notifyUpdateFailuere,
   notifyUpdateSuccess,
 } from "../notification/ProfileNotification";
-import { placeOrder } from "../API/CartAPI";
 
 export default function OrderConfirmation({
   userDetail,

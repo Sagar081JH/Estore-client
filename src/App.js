@@ -11,15 +11,12 @@ import {
   Navigate,
 } from "react-router-dom";
 import Profile from "./componenets/Profile";
-import HomePage from "./componenets/ProductCards";
 import ErrorPage from "./componenets/ErrorPage";
 import Login from "./componenets/Login";
 import Register from "./componenets/Register";
-import ProductCard from "./componenets/ProductCards";
 import ProductCards from "./componenets/ProductCards";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Flip } from "react-toastify";
 import {
   notifyLoggedIn,
   notifyLoggedOut,
@@ -27,8 +24,6 @@ import {
 } from "./notification/Login";
 import Footer from "./componenets/Footer";
 import AboutUs from "./componenets/About";
-import LogoutIcon from "./componenets/LogoutIcon";
-import CartIcon from "./componenets/CartIcon";
 import Cart from "./componenets/Cart";
 import { getCartItems } from "./API/CartAPI";
 
@@ -37,10 +32,8 @@ import {
   notifyRegistrationSuccess,
 } from "./notification/Registration";
 import MyOrders from "./componenets/MyOrders";
-import AddProduct from "./componenets/AddProduct";
 import { Base_URL } from "./API/Base_URL";
 import Navigation from "./componenets/Navigation";
-import ProductDetails from "./componenets/ProductDetails";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -56,13 +49,6 @@ function App() {
   const [loginPwdError, setLoginPwdError] = useState("");
 
   const [showLoginPwd, setShowLoginPwd] = useState(false);
-
-  //session
-  const [sessionItems, setSessionItems] = useState({
-    username: "",
-    pwd: "",
-  });
-
   //Registration
   const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
   const [gender, setGender] = useState("Male");
