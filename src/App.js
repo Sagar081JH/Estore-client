@@ -112,13 +112,13 @@ function App() {
     e.preventDefault();
     var phoneNumber = 0;
     var email1 = "";
-    if (loginEmailOrPhone == "" || loginPwd == "") {
-      if (loginEmailOrPhone == "") {
+    if (loginEmailOrPhone === "" || loginPwd === "") {
+      if (loginEmailOrPhone === "") {
         setLoginEmailOrPhonesetEmailError("Empty username!");
       } else {
         setLoginEmailOrPhonesetEmailError("");
       }
-      if (loginPwd == "") {
+      if (loginPwd === "") {
         setLoginPwdError("Empty password!");
       } else {
         setLoginPwdError("");
@@ -138,7 +138,7 @@ function App() {
           password: loginPwd,
         })
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
             setLoginFailedMsg("Login successful, please close this pop-up");
             setIsAuthenticated(true);
             // setUserId(response.data.user.userId);
@@ -230,18 +230,18 @@ function App() {
   const handleRegister = (e) => {
     e.preventDefault();
     if (
-      firstName == "" ||
-      lastName == "" ||
-      email == "" ||
-      pwd == "" ||
-      confirmPwd == "" ||
-      phoneNo == "" ||
-      area == "" ||
-      city == "" ||
-      state1 == "" ||
-      country == "" ||
-      pincode == "" ||
-      dob == ""
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      pwd === "" ||
+      confirmPwd === "" ||
+      phoneNo === "" ||
+      area === "" ||
+      city === "" ||
+      state1 === "" ||
+      country === "" ||
+      pincode === "" ||
+      dob === ""
     ) {
       if (pwd !== confirmPwd) {
         setPwdMissmatch("Password doesn't match!");
@@ -249,7 +249,7 @@ function App() {
         setPwdMissmatch("");
       }
 
-      if (dob == "") {
+      if (dob === "") {
         setDobError("Please select date of birth!");
       } else {
         setDobError("");
@@ -265,7 +265,7 @@ function App() {
         setPwdError("");
       }
 
-      if (confirmPwd == "") {
+      if (confirmPwd === "") {
         setConfirmPwdError("Empty Confirm password!");
       } else {
         setConfirmPwdError("");
@@ -302,22 +302,22 @@ function App() {
         setPhoneError("");
       }
 
-      if (area == "") {
+      if (area === "") {
         setAreaError("Empty area!");
       } else {
         setAreaError("");
       }
-      if (city == "") {
+      if (city === "") {
         setCityError("Empty city!");
       } else {
         setCityError("");
       }
-      if (state1 == "") {
+      if (state1 === "") {
         setState1Error("Empty state!");
       } else {
         setState1Error("");
       }
-      if (country == "") {
+      if (country === "") {
         setCountryError("Empty country!");
       } else {
         setCountryError("");
@@ -366,7 +366,7 @@ function App() {
       axios
         .post(`${Base_URL}/register`, newUser)
         .then((response) => {
-          if (typeof response.data == typeof "") {
+          if (typeof response.data === typeof "") {
             if (response.data.includes("Email and Phone")) {
               setEmailError("Email already exists!");
               setPhoneError("Phone Number already exists!");
@@ -374,16 +374,16 @@ function App() {
               setEmailError("");
               setPhoneError("");
 
-              response.data == "Email already exists!"
+              response.data === "Email already exists!"
                 ? setEmailError("Email already exists!")
                 : setEmailError("");
 
-              response.data == "Phone Number already exists!"
+              response.data === "Phone Number already exists!"
                 ? setPhoneError("Phone Number already exists!")
                 : setPhoneError("");
             }
           }
-          if (typeof response.data == typeof {}) {
+          if (typeof response.data === typeof {}) {
             setIsRegistrationSuccess(true);
             setTimeout(() => {
               setIsRegistrationSuccess(false);
@@ -408,7 +408,7 @@ function App() {
   const handleLogin = () => {
     if (sessionStorage.getItem("pwd") != null) {
       let uname =
-        sessionStorage.getItem("email") == ""
+        sessionStorage.getItem("email") === ""
           ? sessionStorage.getItem("phone")
           : sessionStorage.getItem("email");
       if (uname != "") {
@@ -419,7 +419,7 @@ function App() {
             password: upwd,
           })
           .then((response) => {
-            if (response.status == 200) {
+            if (response.status === 200) {
               setLoginFailedMsg("Login successful, please close this pop-up");
               setIsAuthenticated(true);
               setUserDetails(response.data);

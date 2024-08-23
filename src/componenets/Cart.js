@@ -32,7 +32,7 @@ export default function Cart({
     axios
       .delete(`${Base_URL}/cart/${id}`)
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           notifyCartItemRemoved();
           getCartItems1();
           getTotalPrice();
@@ -48,7 +48,7 @@ export default function Cart({
     axios
       .get(`${Base_URL}/cart/${user_id}`)
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           setCartItems(response.data);
         }
       })
