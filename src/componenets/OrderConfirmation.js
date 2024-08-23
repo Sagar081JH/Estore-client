@@ -281,7 +281,7 @@ export default function OrderConfirmation({
         </div>
         <div class="modal-footer">
           <button
-            className="btn w-100 p-2 text-primary rounded-4 boxShadow"
+            className="btn w-100 p-2 btn-primary rounded-4 boxShadow"
             data-dismiss="modal"
             aria-label="Close"
             onClick={(e) =>

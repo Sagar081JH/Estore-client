@@ -51,7 +51,7 @@ export default function CartPriceSummary({
           <div className="text-end my-2 boxShadow rounded">
             <button
               type="button"
-              className="btn btn-outline-success w-100 p-2 boxShadow"
+              className="btn btn-primary w-100 p-2 boxShadow"
               data-toggle="modal"
               data-target="#exampleModalCenter"
             >

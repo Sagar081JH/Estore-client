@@ -47,7 +47,7 @@ export default function CartItem({ key, cartItem, handleRemoveCartItem }) {
 
               <div className="col-6 text-end">
                 <button
-                  className="btn btn-warning rounded rounded-4"
+                  className="btn btn-danger rounded rounded-4"
                   onClick={() =>
                     handleRemoveCartItem(cartItem.cartItem.cart_item_id)
                   }

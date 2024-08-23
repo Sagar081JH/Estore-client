@@ -114,7 +114,10 @@ export default function Navigation({
             </li>
             <li class="nav-item mx-3 mt-2 boxShadow p-1 rounded">
               <div>
-                <Link to="/cart" className="rounded-4 text-decoration-none">
+                <Link
+                  to="/cart"
+                  className="rounded-4 text-decoration-none mt-1"
+                >
                   <span className="cartIcon text-light">Cart</span>
                 </Link>
                 <Link
@@ -135,7 +138,7 @@ export default function Navigation({
                           right: "-5px",
                         }}
                       >
-                        {cartItems != undefined && cartItems.length != 0
+                        {cartItems !== undefined && cartItems.length !== 0
                           ? cartItems.length
                           : ""}
                       </i>
@@ -145,9 +148,9 @@ export default function Navigation({
               </div>
             </li>
 
-            <li class="nav-item dropdown mx-3 p-0">
+            <li class="nav-item dropdown mx-3">
               <span
-                class="nav-link link-light dropdown-toggle boxShadow rounded p-1 mt-2"
+                class="nav-link link-light dropdown-toggle boxShadow rounded p-2 mt-2"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -166,7 +169,11 @@ export default function Navigation({
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
                 </svg>
               </span>
-              <div class="dropdown-menu p-2" aria-labelledby="navbarDropdown">
+              <div
+                class="dropdown-menu p-2 text-light"
+                aria-labelledby="navbarDropdown"
+                style={{ backgroundColor: " #008080" }}
+              >
                 {userDetail && (
                   <div>
                     <div className="my-2 p-1 boxShadow rounded">
@@ -184,14 +191,14 @@ export default function Navigation({
                 )}
                 <Link
                   to="/profile"
-                  className="btn link-primary mx-2 rounded-3 boxShadow my-3"
+                  className="btn link-warning mx-2 rounded-3 boxShadow my-3"
                 >
                   Profile
                 </Link>
 
                 <Link
                   to="/orders"
-                  className="btn link-primary rounded-3 boxShadow"
+                  className="btn link-warning rounded-3 boxShadow"
                 >
                   My Orders
                 </Link>

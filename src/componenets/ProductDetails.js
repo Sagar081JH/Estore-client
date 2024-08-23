@@ -16,7 +16,7 @@ export default function ProductDetails({
         <div class="modal-content bg-light text-light">
           <div class="modal-header bg-light text-light">
             <h5
-              class="modal-title text-success"
+              class="modal-title text-success boxShadow p-1 rounded-1"
               id={product.productId + "modal"}
             >
               {product.title}
@@ -144,7 +144,7 @@ export default function ProductDetails({
 
             <div className="text-center py-2">
               <h4 className="text-success ">
-                <span className="border border-success rounded p-2">
+                <span className="rounded p-2 boxShadow">
                   ₹ {product.price}/-
                 </span>
               </h4>
@@ -192,7 +192,7 @@ export default function ProductDetails({
             <div className="row">
               <span className=" col-6 text-start">
                 <button
-                  className="btn btn-warning rounded-5"
+                  className="btn btn-warning rounded-5 boxShadow"
                   onClick={(e) => handleAddToCart(e)}
                 >
                   Add to cart
@@ -200,7 +200,7 @@ export default function ProductDetails({
               </span>
               <span className=" col-6 text-end">
                 <button
-                  className="btn btn-info col-6 rounded-5"
+                  className="btn btn-info col-6 rounded-5 boxShadow"
                   onClick={(e) => handleBuyNow(e)}
                 >
                   Buy Now

@@ -137,7 +137,10 @@ export default function ProductCard({
             data-bs-toggle="modal"
             data-bs-target={`#${productId}modal`}
           >
-            <span class="card-title text-success boxShadow rounded p-2">
+            <span
+              class="card-title boxShadow rounded p-2"
+              style={{ color: " #008080" }}
+            >
               {product.title}
             </span>
             <hr className="" />
@@ -194,7 +197,7 @@ export default function ProductCard({
               <div className="text-center my-1 py-1 ">
                 <button
                   href=""
-                  className="btn text-primary rounded-4 boxShadow"
+                  className="btn text-primary rounded-1 boxShadow"
                   data-bs-toggle="modal"
                   data-bs-target={`#${productId}modal`}
                 >

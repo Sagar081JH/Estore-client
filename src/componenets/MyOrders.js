@@ -87,7 +87,7 @@ export default function MyOrders(userId) {
                   <hr />
                   <div className="text-center">
                     <button
-                      className="btn w-50 btn-outline-primary rounded rounded-5"
+                      className="btn w-50 btn-outline-danger rounded rounded-5"
                       onClick={() => hadleOrderCancel(order.order_id)}
                     >
                       Cancel Order
