@@ -14,7 +14,7 @@ export default function Navigation({
 }) {
   return (
     <nav
-      class="navbar navbar-expand-lg text-light"
+      class="navbar navbar-expand-lg text-light fixed-top mb-5"
       style={{ backgroundColor: " #008080" }}
     >
       <Link
@@ -145,9 +145,9 @@ export default function Navigation({
               </div>
             </li>
 
-            <li class="nav-item dropdown mx-3 ">
+            <li class="nav-item dropdown mx-3 p-0">
               <span
-                class="nav-link link-light dropdown-toggle boxShadow rounded"
+                class="nav-link link-light dropdown-toggle boxShadow rounded p-1 mt-2"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -197,8 +197,8 @@ export default function Navigation({
                 </Link>
               </div>
             </li>
-            <li class="nav-item mt-1 boxShadow rounded">
-              <div className="mx-2 mt-1">
+            <li class="nav-item mt-2 boxShadow rounded mx-2 p-1">
+              <div className="mt-1">
                 <span
                   className="text-light"
                   data-toggle="modal"
@@ -266,7 +266,7 @@ export default function Navigation({
         ) : (
           <ul class="navbar-nav mr-auto">
             <li class="mx-2 nav-item active mt-1 boxShadow rounded">
-              <Link to="/login" type="button " class="mx-2 btn text-light">
+              <Link to="/login" type="button " class="btn text-light">
                 Login
               </Link>
             </li>

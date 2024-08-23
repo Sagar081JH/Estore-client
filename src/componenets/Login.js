@@ -17,7 +17,7 @@ export default function Login({
   resetLoginForm,
 }) {
   return (
-    <div className="container bg-light my-5 rounded-3 login boxShadow">
+    <div className="container bg-light my-5 rounded-3 login boxShadow p-4">
       <div className="text-center fs-3 text-success mt-2">Login</div>
       <form onSubmit={(e) => hangleLogin(e)}>
         <div class="mb-3">

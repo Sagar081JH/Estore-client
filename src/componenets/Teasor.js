@@ -4,7 +4,7 @@ export default function Teasor() {
   return (
     <div
       id="carouselExampleIndicators"
-      class="carousel slide my-1"
+      class="carousel slide my-1 mt-5 pt-2"
       data-ride="carousel"
     >
       <span class="carousel-indicators text-danger">

@@ -110,6 +110,9 @@
 .boxShadow {
   box-shadow: 0 4px 8px 0 rgba(26, 2, 2, 0.2), 0 6px 20px 0 rgba(19, 0, 0, 0.19);
 }
+.textShadow {
+  text-shadow: 2px 1px #00b2f8;
+}
 
 @media only screen and (max-width: 900px) {
   .login{

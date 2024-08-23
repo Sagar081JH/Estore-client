@@ -506,7 +506,7 @@ function App() {
 
           {isAuthenticated && userDetail.user.role === "ADMIN" && (
             <div
-              className={`text-center mt-2 ${
+              className={`text-center mt-3 pt-5 boxShadow ${
                 healthStatus === "UP" ? "text-success" : "text-danger"
               }`}
             >
@@ -524,9 +524,7 @@ function App() {
                   userDetail={userDetail}
                   setCartItems={setCartItems}
                   isAuthenticated={isAuthenticated}
-                  pathName={pathName}
-                  searchProduct={searchProduct}
-                  onSearchChange={onSearchChange}
+                  cartItems={cartItems}
                 />
               }
             />
@@ -653,21 +651,6 @@ function App() {
                 )
               }
             />
-            {/* <Route
-              path="/card/:details"
-              element={
-                <Details
-                  product={product}
-                  handleBuyNow={handleBuyNow}
-                  handleAddToCart={handleAddToCart}
-                  img1={img1}
-                  img2={img2}
-                  img3={img3}
-                  img4={img4}
-                  img5={img5}
-                />
-              }
-            ></Route> */}
           </Routes>
           <Footer />
         </div>

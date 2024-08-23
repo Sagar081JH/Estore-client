@@ -99,7 +99,7 @@ export default function Cart({
   return (
     <div>
       {isAuthenticated && (
-        <div className="px-5">
+        <div className="px-5 pt-5">
           <div className="text-center text-success p-2">
             {cartItems.length === 0 && (
               <div className="text-primary p-5">
@@ -163,7 +163,6 @@ export default function Cart({
                   cartItems={cartItems}
                   handleOrderPlaced={handleOrderPlaced}
                   userDetail={userDetails}
-                  handleLogin={handleLogin}
                 />
               )}
             </div>

@@ -8,11 +8,12 @@ export default function ProductCards({
   userDetail,
   setCartItems,
   isAuthenticated,
+  cartItems,
 }) {
   return (
     <div>
       <Teasor />
-      <div className="row p-3">
+      <div className="row">
         {products &&
           products.length === 0 &&
           (searchInput.length !== 0 ? (
@@ -26,16 +27,9 @@ export default function ProductCards({
             </div>
           ))}
 
-        {/* {searchInput.length !== 0 && (
-        <div className="mx-3 p-1">
-          <span className="text-danger fs-4">{products.length}</span>
-          <span className="fs-6"> product found with search :</span>
-          <span className="text-primary fs-5"> {searchInput}</span>
-        </div>
-      )} */}
         <div className="fs-5 text-center my-2">
           <span
-            className="p-2 rounded-2 boxShadow"
+            className="p-2 rounded-2 boxShadow textShadow"
             style={{ color: "#008080" }}
           >
             Featured products
@@ -47,6 +41,7 @@ export default function ProductCards({
             userDetail={userDetail}
             product={product}
             isAuthenticated={isAuthenticated}
+            cartItems={cartItems}
           />
         ))}
       </div>

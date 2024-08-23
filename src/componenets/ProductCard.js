@@ -16,12 +16,14 @@ import {
 } from "../notification/Home";
 import { Base_URL } from "../API/Base_URL";
 import { Link, Route, Routes } from "react-router-dom";
+import OrderConfirmation from "./OrderConfirmation";
 
 export default function ProductCard({
   setCartItems,
   userDetail,
   product,
   isAuthenticated,
+  cartItems,
 }) {
   const productId = product.productId;
 
@@ -128,14 +130,14 @@ export default function ProductCard({
 
   return (
     <div class="col-sm-3 my-1 rounded-3 bg-light boxShadow">
-      <div class="card rounded-3 bg-light border border-info my-2">
+      <div class="card rounded-3 bg-light my-2">
         <div class="card-body">
           <Link
             className="text-decoration-none"
             data-bs-toggle="modal"
             data-bs-target={`#${productId}modal`}
           >
-            <span class="card-title text-dark boxShadow rounded p-1">
+            <span class="card-title text-primary boxShadow rounded p-1">
               {product.title}
             </span>
             <hr className="" />
@@ -281,12 +283,35 @@ export default function ProductCard({
 
             <span className="col-6 text-end">
               {isAuthenticated ? (
-                <button
-                  className="btn btn-primary rounded-4 boxShadow rounded"
-                  onClick={(e) => handleBuyNow(e)}
-                >
-                  Buy now
-                </button>
+                <div>
+                  <div className="text-end my-2 rounded">
+                    <button
+                      className="btn btn-primary rounded-4 boxShadow rounded"
+                      type="button"
+                      data-toggle="modal"
+                      data-target="#exampleModalCenter"
+                    >
+                      Buy now
+                    </button>
+
+                    <div
+                      class="modal fade"
+                      id="exampleModalCenter"
+                      tabindex="-1"
+                      role="dialog"
+                      aria-labelledby="exampleModalCenterTitle"
+                      aria-hidden="true"
+                    >
+                      <OrderConfirmation
+                        userDetail={userDetail}
+                        cartItems={cartItems}
+                        handleOrderPlaced={() => {}}
+                        handleBuyNow={handleBuyNow}
+                        page={"products"}
+                      />
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <Link
                   to="/login"

@@ -290,7 +290,7 @@ export default function Profile({ userDetail, handleLogin }) {
   };
 
   return (
-    <div className="container py-3 my-3 boxShadow rounded">
+    <div className="container py-3 my-5 boxShadow rounded pt-5">
       {/* <div className="text-center text-primary p-3">
         <h4 className="p-3">Profile</h4>
       </div> */}

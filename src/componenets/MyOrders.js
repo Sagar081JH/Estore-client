@@ -11,7 +11,6 @@ export default function MyOrders(userId) {
   const [myOrders, setMyOrders] = useState([]);
 
   const hadleOrderCancel = (id) => {
-    console.log("clio :", myOrders.length);
     axios
       .delete(`${Base_URL}/orders/${id}`)
       .then((response) => {
@@ -22,7 +21,6 @@ export default function MyOrders(userId) {
             setMyOrders([]);
           }
           notifyOrderCancelSuccess();
-          console.log("myorders_cancel :", res);
         }
       })
       .catch((error) => {
@@ -38,7 +36,6 @@ export default function MyOrders(userId) {
         if (response.status === 200) {
           let res = response.data;
           setMyOrders(res);
-          console.log("myorders :", res);
         }
       })
       .catch((error) => {
@@ -52,11 +49,11 @@ export default function MyOrders(userId) {
 
   let count = 1;
   return (
-    <div className="container p-4">
-      <div className="mt-4 text-primary fs-4 text-center">
+    <div className="container p-5">
+      <div className="mt-4 fs-4 text-start">
         <span className="p-2 boxShadow rounded">
           {" "}
-          Orders ({myOrders.length})
+          My orders ({myOrders.length})
         </span>
       </div>
 

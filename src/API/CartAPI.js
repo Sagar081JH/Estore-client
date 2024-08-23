@@ -43,7 +43,7 @@ export const placeOrder = (
   axios
     .post(`${Base_URL}/orders`, orderRequest)
     .then((response) => {
-      if (response.status == 200) {
+      if (response.status === 200) {
         let res = response.data;
         console.log("placeOrder :", res);
         setIsOrderPlaced(true);

@@ -2,7 +2,6 @@ import React from "react";
 import "../404.css";
 
 export default function ErrorPage({ filteredProducts, msg }) {
-  console.log("load1:", msg);
   return (
     <div className="background">
       <div className="transbox">
