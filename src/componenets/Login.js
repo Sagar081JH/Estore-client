@@ -2,31 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 
-export default function Login({
-  hangleLogin,
-  loginEmailOrPhoneError,
-  loginEmailOrPhone,
-  setLoginEmailOrPhonesetEmail,
-  loginPwdError,
-  showLoginPwd,
-  loginPwd,
-  setLoginPwd,
-  setShowLoginPwd,
-  isAuthenticated,
-  loginFailedMsg,
-  resetLoginForm,
-}) {
+export default function Login(props) {
   return (
     <div className="container bg-light mt-5 rounded-3 login boxShadow pt-3">
       <div className="text-center fs-3 text-success mt-2">Login</div>
-      <form onSubmit={(e) => hangleLogin(e)}>
+      <form onSubmit={(e) => props.hangleLogin(e)}>
         <div class="mb-3">
           <div className="row">
             <label for="exampleInputEmail1" class="text-start form-label col-6">
               Username
             </label>
             <span className="text-danger text-end col-6">
-              {loginEmailOrPhoneError}
+              {props.loginEmailOrPhoneError}
             </span>
           </div>
           <input
@@ -35,8 +22,8 @@ export default function Login({
             className="form-control border border-info"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
-            value={loginEmailOrPhone}
-            onChange={(e) => setLoginEmailOrPhonesetEmail(e.target.value)}
+            value={props.loginEmailOrPhone}
+            onChange={(e) => props.setLoginEmailOrPhonesetEmail(e.target.value)}
           />
         </div>
         <div class="mb-3">
@@ -44,39 +31,43 @@ export default function Login({
             <label for="loginPwd" class="text-start form-label col-6">
               Password
             </label>
-            <span className="text-danger text-end col-6">{loginPwdError}</span>
+            <span className="text-danger text-end col-6">
+              {props.loginPwdError}
+            </span>
           </div>
           <input
-            type={`${showLoginPwd ? "text" : "password"}`}
+            type={`${props.showLoginPwd ? "text" : "password"}`}
             class="form-control border border-info"
             placeholder="Enter password"
             id="loginPwd"
-            value={loginPwd}
-            onChange={(e) => setLoginPwd(e.target.value)}
+            value={props.loginPwd}
+            onChange={(e) => props.setLoginPwd(e.target.value)}
           />
           <div class="form-check text-start my-2">
             <input
-              checked={showLoginPwd}
+              checked={props.showLoginPwd}
               type="checkbox"
               class="form-check-input"
               id="exampleCheck1"
-              onClick={() => setShowLoginPwd(!showLoginPwd)}
+              onClick={() => props.setShowLoginPwd(!props.showLoginPwd)}
             />
             <label
               className="form-check-label text-primary"
               for="exampleCheck1"
             >
-              {showLoginPwd ? "Hide" : "Show"} password
+              {props.showLoginPwd ? "Hide" : "Show"} password
             </label>
           </div>
         </div>
         <div>
           <div
             className={`text-center p-2 ${
-              isAuthenticated ? "text-success" : "text-danger"
+              props.isAuthenticated ? "text-success" : "text-danger"
             }`}
           >
-            {isAuthenticated ? "Logged In Successfully !" : loginFailedMsg}
+            {props.isAuthenticated
+              ? "Logged In Successfully !"
+              : props.loginFailedMsg}
           </div>
 
           <div className="row">
@@ -121,7 +112,7 @@ export default function Login({
                       type="button"
                       class="btn btn-danger"
                       data-dismiss="modal"
-                      onClick={(e) => resetLoginForm(e)}
+                      onClick={(e) => props.resetLoginForm(e)}
                     >
                       Yes,Reset
                     </button>

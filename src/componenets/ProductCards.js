@@ -2,21 +2,14 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import Teasor from "./Teasor";
 
-export default function ProductCards({
-  products,
-  searchInput,
-  userDetail,
-  setCartItems,
-  isAuthenticated,
-  cartItems,
-}) {
+export default function ProductCards(props) {
   return (
     <div>
       <Teasor />
       <div className="row">
-        {products &&
-          products.length === 0 &&
-          (searchInput.length !== 0 ? (
+        {props.products &&
+          props.products.length === 0 &&
+          (props.searchInput.length !== 0 ? (
             <></>
           ) : (
             <div class="text-center p-5">
@@ -35,13 +28,24 @@ export default function ProductCards({
             Featured products
           </span>
         </div>
-        {products.map((product) => (
+        <div className="my-3 text-end">
+          Sort By :{" "}
+          <select onChange={(e) => props.sortProductsBy(e.target.value)}>
+            <option value="default">Default</option>
+            <option value="nameAscending">Title : Ascending</option>
+            <option value="nameDescending">Title : Descending</option>
+            <option value="priceAscending">Price : Low to High</option>
+            <option value="priceDescending">Price : High to Low</option>
+          </select>{" "}
+          Order
+        </div>
+        {props.products.map((product) => (
           <ProductCard
-            setCartItems={setCartItems}
-            userDetail={userDetail}
+            setCartItems={props.setCartItems}
+            userDetail={props.userDetail}
             product={product}
-            isAuthenticated={isAuthenticated}
-            cartItems={cartItems}
+            isAuthenticated={props.isAuthenticated}
+            cartItems={props.cartItems}
           />
         ))}
       </div>

@@ -75,7 +75,7 @@ function App() {
     } else {
       setPathName(window.location.pathname);
     }
-  });
+  }, [searchProduct.length]);
 
   const onSearchChange = (e) => {
     e.preventDefault();
@@ -465,6 +465,21 @@ function App() {
         setProductsLoadMsg(`Server Error ! : ${error.message}`);
       });
   };
+  const [sortBy, setSortBy] = useState("default");
+  const sortProductsBy = (sortBy) => {
+    console.log("sort :", sortBy);
+    axios
+      .get(`${Base_URL}/products/sort?sortBy=${sortBy}`)
+      .then((response) => {
+        setProducts(response.data);
+        if (response.data.length === 0) {
+          setProductsLoadMsg("Products not available!");
+        }
+      })
+      .catch((error) => {
+        setProductsLoadMsg(`Server Error ! : ${error.message}`);
+      });
+  };
   useEffect(() => {
     handleLogin();
     getCartItems(setCartItems);
@@ -511,6 +526,9 @@ function App() {
                   setCartItems={setCartItems}
                   isAuthenticated={isAuthenticated}
                   cartItems={cartItems}
+                  sortProductsBy={sortProductsBy}
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
                 />
               ) : (
                 <ErrorPage />
@@ -536,7 +554,7 @@ function App() {
               />
             }
           />
-          <Route path="/about-us" element={<AboutUs msg={productsLoadMsg} />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route
             path="/cart"
             element={

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
+import { Alert } from "@mui/material";
 
 export default function Footer() {
   return (

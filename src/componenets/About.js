@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AboutUs({ msg }) {
+export default function AboutUs() {
   return (
     <div className="container">
       <div className="text-start text-primary p-2">

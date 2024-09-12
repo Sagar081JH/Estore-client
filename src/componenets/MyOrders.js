@@ -7,7 +7,7 @@ import {
 } from "../notification/Cart";
 import { Base_URL } from "../API/Base_URL";
 
-export default function MyOrders(userId) {
+export default function MyOrders({ userId }) {
   const [myOrders, setMyOrders] = useState([]);
 
   const hadleOrderCancel = (id) => {
@@ -15,7 +15,6 @@ export default function MyOrders(userId) {
       .delete(`${Base_URL}/orders/${id}`)
       .then((response) => {
         if (response.status === 200) {
-          let res = response.data;
           getOrderList();
           if (myOrders.length === 1) {
             setMyOrders([]);
@@ -31,7 +30,7 @@ export default function MyOrders(userId) {
 
   const getOrderList = () => {
     axios
-      .get(`${Base_URL}/orders/${userId.userId}`)
+      .get(`${Base_URL}/orders/${userId}`)
       .then((response) => {
         if (response.status === 200) {
           let res = response.data;
@@ -84,6 +83,15 @@ export default function MyOrders(userId) {
                     Status
                   </span>
                   <h6 className="text-dark">Pending</h6>
+                  <span className="text-info" style={{ fontSize: "12px" }}>
+                    Order Date
+                  </span>
+                  <h6 className="text-dark">
+                    {"Date : " +
+                      new Date(order.orderDate).toLocaleDateString() +
+                      " Time : " +
+                      new Date(order.orderDate).toLocaleTimeString()}
+                  </h6>
                   <hr />
                   <div className="text-center">
                     <button

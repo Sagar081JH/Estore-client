@@ -26,6 +26,7 @@ export default function ProductCard({
   cartItems,
 }) {
   const productId = product.productId;
+  console.log("buypid:", productId);
 
   const handleAddToCart = (e) => {
     if (isAuthenticated) {
@@ -53,13 +54,15 @@ export default function ProductCard({
     }
   };
 
-  const handleBuyNow = (e) => {
+  const handleBuyNow = (id) => {
+    console.log("BuyPro : ", product);
+    console.log("BuyProid : ", id);
     if (isAuthenticated) {
       axios
         .post(`${Base_URL}/orders`, [
           {
             user_id: userDetail.user.userId,
-            product_id: product.productId,
+            product_id: id,
           },
         ])
         .then((response) => {
@@ -287,19 +290,26 @@ export default function ProductCard({
             <span className="col-6 text-end">
               {isAuthenticated ? (
                 <div>
-                  <div className="text-end my-2 rounded">
+                  <Link
+                    to="/login"
+                    className="btn btn-primary rounded-4  boxShadow rounded"
+                    onClick={(e) => handleBuyNow(productId)}
+                  >
+                    Buy now
+                  </Link>
+                  {/* <div className="text-end my-2 rounded">
                     <button
                       className="btn btn-primary rounded-4 boxShadow rounded"
                       type="button"
                       data-toggle="modal"
-                      data-target="#exampleModalCenter"
+                      data-target={`#${productId + product.title}`}
                     >
                       Buy now
                     </button>
 
                     <div
                       class="modal fade"
-                      id="exampleModalCenter"
+                      id={productId + product.title}
                       tabindex="-1"
                       role="dialog"
                       aria-labelledby="exampleModalCenterTitle"
@@ -311,9 +321,10 @@ export default function ProductCard({
                         handleOrderPlaced={() => {}}
                         handleBuyNow={handleBuyNow}
                         page={"products"}
+                        productId={productId}
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ) : (
                 <Link

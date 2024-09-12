@@ -2,16 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 
-export default function Navigation({
-  isAuthenticated,
-  searchProduct,
-  onSearchChange,
-  handleSearch,
-  userDetail,
-  cartItems,
-  handleLogout,
-  filteredProducts,
-}) {
+export default function Navigation(props) {
   return (
     <nav
       class="navbar navbar-expand-lg text-light fixed-top mb-5"
@@ -34,7 +25,7 @@ export default function Navigation({
       </Link>
       <form
         class="row form my-2 mx-1  form-inline my-lg-0"
-        onSubmit={handleSearch}
+        onSubmit={props.handleSearch}
       >
         <div class="col-9 dropdown">
           <input
@@ -45,20 +36,21 @@ export default function Navigation({
             aria-haspopup="true"
             placeholder="Search for product..."
             aria-label="Search"
-            value={searchProduct}
-            onChange={(e) => onSearchChange(e)}
+            value={props.searchProduct}
+            onChange={(e) => props.onSearchChange(e)}
           />
           <div
             class="searchdropdown dropdown-menu p-2 bg-light"
             aria-labelledby="dropdownMenuButton"
           >
-            {searchProduct.length !== 0 && filteredProducts.length === 0 && (
-              <div className="text-center text-warning px-5">
-                No match found!
-              </div>
-            )}
-            {searchProduct.length !== 0 ? (
-              filteredProducts.map((product) => (
+            {props.searchProduct.length !== 0 &&
+              props.filteredProducts.length === 0 && (
+                <div className="text-center text-warning px-5">
+                  No match found!
+                </div>
+              )}
+            {props.searchProduct.length !== 0 ? (
+              props.filteredProducts.map((product) => (
                 <div className="px-5 my-2">
                   <Link
                     className="text-decoration-none text-success"
@@ -67,7 +59,7 @@ export default function Navigation({
                   >
                     {product.title}
                   </Link>
-                  {filteredProducts.length !== 1 && <hr />}
+                  {props.filteredProducts.length !== 1 && <hr />}
                 </div>
               ))
             ) : (
@@ -105,11 +97,11 @@ export default function Navigation({
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {isAuthenticated ? (
+        {props.isAuthenticated ? (
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active mt-2 mx-3 boxShadow p-1 rounded">
               <span class="sr-only">
-                Welcome, {userDetail.user.firstName} &#128522;
+                Welcome, {props.userDetail.user.firstName} &#128522;
               </span>
             </li>
             <li class="nav-item mx-3 mt-2 boxShadow p-1 rounded">
@@ -138,8 +130,9 @@ export default function Navigation({
                           right: "-5px",
                         }}
                       >
-                        {cartItems !== undefined && cartItems.length !== 0
-                          ? cartItems.length
+                        {props.cartItems !== undefined &&
+                        props.cartItems.length !== 0
+                          ? props.cartItems.length
                           : ""}
                       </i>
                     </a>
@@ -174,18 +167,18 @@ export default function Navigation({
                 aria-labelledby="navbarDropdown"
                 style={{ backgroundColor: " #008080" }}
               >
-                {userDetail && (
+                {props.userDetail && (
                   <div>
                     <div className="my-2 p-1 boxShadow rounded">
-                      {userDetail.user.firstName +
+                      {props.userDetail.user.firstName +
                         " " +
-                        userDetail.user.lastName}
+                        props.userDetail.user.lastName}
                     </div>
                     <div className="my-2 p-1 boxShadow rounded">
-                      {userDetail.credentials.email}
+                      {props.userDetail.credentials.email}
                     </div>
                     <div className="my-2 p-1 boxShadow rounded">
-                      {userDetail.credentials.phoneNumber}
+                      {props.userDetail.credentials.phoneNumber}
                     </div>
                   </div>
                 )}
@@ -214,7 +207,7 @@ export default function Navigation({
                 >
                   <span
                     className="hoverLink mx-2 text-warning"
-                    onClick={(e) => handleLogout(e)}
+                    onClick={(e) => props.handleLogout(e)}
                   >
                     Log-out
                   </span>

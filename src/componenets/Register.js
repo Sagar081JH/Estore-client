@@ -2,59 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchCountries, fetchIndianState } from "../API/Registration";
 
-export default function Register({
-  handleRegister,
-  gender,
-  setGender,
-  firstNameError,
-  firstName,
-  setFirstName,
-  lastNameError,
-  lastName,
-  setLastName,
-  dob,
-  setDob,
-  emailError,
-  email,
-  setEmail,
-  phoneError,
-  phoneNo,
-  setPhoneNo,
-  pwdError,
-  pwd,
-  setPwd,
-  confirmPwdError,
-  pwdMissMatch,
-  confirmPwd,
-  setConfirmPwd,
-  areaError,
-  area,
-  setArea,
-  cityError,
-  city,
-  setCity,
-  state1Error,
-  state1,
-  setState1,
-  countryError,
-  country,
-  setCountry,
-  pincodeError,
-  pincode,
-  setPincode,
-  isRegistrationSuccess,
-  clearRegistrationForm,
-  dobError,
-  showLoginPwd,
-  setShowLoginPwd,
-}) {
+export default function Register(props) {
   const [countryList, setCountryList] = useState([]);
   const [indianStateList, setIndianStateList] = useState([]);
 
   const loadIndianStates = (value) => {
-    if (country === "India") {
+    if (props.country === "India") {
       fetchIndianState(setIndianStateList);
-      setState1("Andaman and Nicobar Islands");
+      props.setState1("Andaman and Nicobar Islands");
     } else {
       setIndianStateList([]);
     }
@@ -66,12 +21,12 @@ export default function Register({
   }, []);
 
   const handleCountryChange = (value) => {
-    setCountry(value);
+    props.setCountry(value);
     if (value === "India") {
       fetchIndianState(setIndianStateList);
-      setState1("Andaman and Nicobar Islands");
+      props.setState1("Andaman and Nicobar Islands");
     } else {
-      setState1("");
+      props.setState1("");
       setIndianStateList([]);
     }
   };
@@ -93,15 +48,15 @@ export default function Register({
             </Link>
           </div>
           <hr />
-          <form onSubmit={(e) => handleRegister(e)}>
+          <form onSubmit={(e) => props.handleRegister(e)}>
             <div className="row my-1">
               <div class="col-3">
                 <div className="mb-3">Salutation</div>
                 <select
                   class="form-control border border-info"
                   label="Gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
+                  value={props.gender}
+                  onChange={(e) => props.setGender(e.target.value)}
                 >
                   <option value="Male">Mr.</option>
                   <option value="Female">Ms.</option>
@@ -121,14 +76,14 @@ export default function Register({
                   className="text-danger text-start"
                   style={{ fontSize: "12px" }}
                 >
-                  {firstNameError}
+                  {props.firstNameError}
                 </div>
                 <input
                   type="text"
                   class="form-control border border-info"
                   id="fname"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={props.firstName}
+                  onChange={(e) => props.setFirstName(e.target.value)}
                 />
               </div>
 
@@ -142,15 +97,15 @@ export default function Register({
                   className="text-danger text-start"
                   style={{ fontSize: "12px" }}
                 >
-                  {lastNameError}
+                  {props.lastNameError}
                 </div>
                 <input
                   type="text"
                   placeholder=""
                   className="form-control border border-info"
                   id="lname"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  value={props.lastName}
+                  onChange={(e) => props.setLastName(e.target.value)}
                 />
               </div>
             </div>
@@ -165,15 +120,15 @@ export default function Register({
                 className="text-danger text-start"
                 style={{ fontSize: "12px" }}
               >
-                {dobError}
+                {props.dobError}
               </div>
               <input
                 type="date"
                 placeholder=""
                 className="form-control border border-info"
                 id="dob"
-                value={dob}
-                onChange={(e) => setDob(e.target.value)}
+                value={props.dob}
+                onChange={(e) => props.setDob(e.target.value)}
               />
             </div>
 
@@ -182,15 +137,17 @@ export default function Register({
                 <label for="mail" className="text-start form-label col-6">
                   Email
                 </label>
-                <span className="text-danger text-end col-6">{emailError}</span>
+                <span className="text-danger text-end col-6">
+                  {props.emailError}
+                </span>
               </div>
 
               <input
                 type="text"
                 class="form-control border border-info"
                 id="mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={props.email}
+                onChange={(e) => props.setEmail(e.target.value)}
               />
             </div>
             <div class="mb-3">
@@ -198,15 +155,17 @@ export default function Register({
                 <label for="phone" className="text-start form-label col-4">
                   Phone number
                 </label>
-                <span className="text-danger text-end col-8">{phoneError}</span>
+                <span className="text-danger text-end col-8">
+                  {props.phoneError}
+                </span>
               </div>
 
               <input
                 type="text"
                 class="form-control border border-info"
                 id="phone"
-                value={phoneNo}
-                onChange={(e) => setPhoneNo(e.target.value)}
+                value={props.phoneNo}
+                onChange={(e) => props.setPhoneNo(e.target.value)}
               />
             </div>
             <div class="mb-3">
@@ -219,15 +178,15 @@ export default function Register({
                 className="text-danger text-start"
                 style={{ fontSize: "12px" }}
               >
-                {pwdError}
+                {props.pwdError}
               </div>
 
               <input
-                type={`${showLoginPwd ? "text" : "password"}`}
+                type={`${props.showLoginPwd ? "text" : "password"}`}
                 class="form-control border border-info"
                 id="pwd"
-                value={pwd}
-                onChange={(e) => setPwd(e.target.value)}
+                value={props.pwd}
+                onChange={(e) => props.setPwd(e.target.value)}
               />
             </div>
             <div class="mb-3">
@@ -236,29 +195,31 @@ export default function Register({
                   Confirm Password
                 </label>
                 <span className="text-danger text-end col-6">
-                  {confirmPwdError === "" ? pwdMissMatch : confirmPwdError}
+                  {props.confirmPwdError === ""
+                    ? props.pwdMissMatch
+                    : props.confirmPwdError}
                 </span>
               </div>
               <input
-                type={`${showLoginPwd ? "text" : "password"}`}
+                type={`${props.showLoginPwd ? "text" : "password"}`}
                 class="form-control border border-info"
                 id="confirmPwd"
-                value={confirmPwd}
-                onChange={(e) => setConfirmPwd(e.target.value)}
+                value={props.confirmPwd}
+                onChange={(e) => props.setConfirmPwd(e.target.value)}
               />
               <div class="form-check my-2">
                 <input
-                  checked={showLoginPwd}
+                  checked={props.showLoginPwd}
                   type="checkbox"
                   class="form-check-input text-center"
                   id="exampleCheck1"
-                  onClick={() => setShowLoginPwd(!showLoginPwd)}
+                  onClick={() => props.setShowLoginPwd(!props.showLoginPwd)}
                 />
                 <label
                   className="form-check-label text-primary"
                   for="exampleCheck1"
                 >
-                  {showLoginPwd ? "Hide passwords" : "Show passwords"}
+                  {props.showLoginPwd ? "Hide passwords" : "Show passwords"}
                 </label>
               </div>
             </div>
@@ -271,7 +232,7 @@ export default function Register({
                     Country
                   </label>
                   <span className="text-danger text-end col-6">
-                    {countryError}
+                    {props.countryError}
                   </span>
                 </div>
                 {/* <input
@@ -285,7 +246,7 @@ export default function Register({
                   className="form-control border border-info"
                   name="country"
                   id="country"
-                  value={country}
+                  value={props.country}
                   onChange={(e) => handleCountryChange(e.target.value)}
                 >
                   {countryList.map((country) => (
@@ -299,7 +260,7 @@ export default function Register({
                     State
                   </label>
                   <span className="text-danger text-end col-6">
-                    {state1Error}
+                    {props.state1Error}
                   </span>
                 </div>
 
@@ -308,8 +269,8 @@ export default function Register({
                     className="form-control border border-info"
                     name="state"
                     id="state"
-                    value={state1}
-                    onChange={(e) => setState1(e.target.value)}
+                    value={props.state1}
+                    onChange={(e) => props.setState1(e.target.value)}
                   >
                     {indianStateList.length !== 0 &&
                       indianStateList.map((state) => (
@@ -321,8 +282,8 @@ export default function Register({
                     type="text"
                     class="form-control border border-info"
                     id="state1"
-                    value={state1}
-                    onChange={(e) => setState1(e.target.value)}
+                    value={props.state1}
+                    onChange={(e) => props.setState1(e.target.value)}
                   />
                 )}
               </div>
@@ -334,7 +295,7 @@ export default function Register({
                     City
                   </label>
                   <span className="text-danger text-end col-6">
-                    {cityError}
+                    {props.cityError}
                   </span>
                 </div>
 
@@ -342,8 +303,8 @@ export default function Register({
                   type="text"
                   class="form-control border border-info"
                   id="city"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  value={props.city}
+                  onChange={(e) => props.setCity(e.target.value)}
                 />
               </div>
               <div className="col-6">
@@ -352,15 +313,15 @@ export default function Register({
                     Area
                   </label>
                   <span className="text-danger text-end col-6">
-                    {areaError}
+                    {props.areaError}
                   </span>
                 </div>
                 <input
                   type="text"
                   class="form-control border border-info"
                   id="area"
-                  value={area}
-                  onChange={(e) => setArea(e.target.value)}
+                  value={props.area}
+                  onChange={(e) => props.setArea(e.target.value)}
                 />
               </div>
             </div>
@@ -371,21 +332,21 @@ export default function Register({
                   Pincode
                 </label>
                 <span className="text-danger text-end col-6">
-                  {pincodeError}
+                  {props.pincodeError}
                 </span>
               </div>
               <input
                 type="text"
                 class="form-control border border-info"
                 id="pincode"
-                value={pincode}
-                onChange={(e) => setPincode(e.target.value)}
+                value={props.pincode}
+                onChange={(e) => props.setPincode(e.target.value)}
               />
             </div>
             <div>
               <div className="text-center p-2">
                 <span class="text-success">
-                  {isRegistrationSuccess
+                  {props.isRegistrationSuccess
                     ? "Registration successful. please proceed to login page"
                     : ""}
                 </span>
@@ -434,7 +395,7 @@ export default function Register({
                           type="button"
                           class="btn btn-danger"
                           data-dismiss="modal"
-                          onClick={(e) => clearRegistrationForm(e)}
+                          onClick={(e) => props.clearRegistrationForm(e)}
                         >
                           Yes,Reset
                         </button>

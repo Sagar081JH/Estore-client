@@ -14,12 +14,7 @@ import {
 import { Link } from "react-router-dom";
 import { Base_URL } from "../API/Base_URL";
 
-export default function Cart({
-  isAuthenticated,
-  userDetails,
-  setCartItems1,
-  handleLogin,
-}) {
+export default function Cart(props) {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalprice] = useState(0);
 
@@ -36,7 +31,7 @@ export default function Cart({
           notifyCartItemRemoved();
           getCartItems1();
           getTotalPrice();
-          getCartItems(setCartItems1);
+          getCartItems(props.setCartItems1);
         }
       })
       .catch((error) => {
@@ -75,7 +70,7 @@ export default function Cart({
       setHidePriceSummary,
       setHideCartItems,
       setCartItems,
-      setCartItems1,
+      props.setCartItems1,
       getCartItems1,
       getTotalPrice
     );
@@ -83,7 +78,7 @@ export default function Cart({
     setHidePriceSummary(true);
     setHideCartItems(true);
     setCartItems([]);
-    setCartItems1([]);
+    props.setCartItems1([]);
     getCartItems1();
     getTotalPrice();
     console.log("item33:", cartItems);
@@ -98,7 +93,7 @@ export default function Cart({
 
   return (
     <div>
-      {isAuthenticated && (
+      {props.isAuthenticated && (
         <div className="px-5 pt-5">
           <div className="text-center text-success p-2">
             {cartItems.length === 0 && (
@@ -108,7 +103,7 @@ export default function Cart({
                     <h4 className="text-dark my-5">
                       Thanks{" "}
                       <span className="text-primary">
-                        {userDetails.user.firstName}
+                        {props.userDetails.user.firstName}
                       </span>{" "}
                       for shopping at E-store !
                       <hr />
@@ -162,7 +157,7 @@ export default function Cart({
                   totalPrice={totalPrice}
                   cartItems={cartItems}
                   handleOrderPlaced={handleOrderPlaced}
-                  userDetail={userDetails}
+                  userDetail={props.userDetails}
                 />
               )}
             </div>

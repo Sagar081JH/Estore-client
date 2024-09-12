@@ -12,6 +12,7 @@ export default function OrderConfirmation({
   handleOrderPlaced,
   handleBuyNow,
   page,
+  productId,
 }) {
   const [editedarea, seteditedArea] = useState(userDetail.address.area);
   const [editedcity, seteditedCity] = useState(userDetail.address.city);
@@ -34,6 +35,8 @@ export default function OrderConfirmation({
   const [phoneEditFlag, setPhoneEditFlag] = useState(false);
   const [editedphoneNo, seteditedPhoneNo] = useState(phone.toString());
   const [phoneError, setPhoneError] = useState("");
+
+  console.log("confirmId:", productId);
 
   const handleAddressUpdate = (e) => {
     let pincodeRegex = "^[0-9]{6}$";
@@ -285,7 +288,9 @@ export default function OrderConfirmation({
             data-dismiss="modal"
             aria-label="Close"
             onClick={(e) =>
-              page === "cart" ? handleOrderPlaced(cartItems) : handleBuyNow(e)
+              page === "cart"
+                ? handleOrderPlaced(cartItems)
+                : handleBuyNow(productId)
             }
           >
             {page === "cart" ? (
