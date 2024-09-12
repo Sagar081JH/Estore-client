@@ -81,7 +81,6 @@ export default function Cart(props) {
     props.setCartItems1([]);
     getCartItems1();
     getTotalPrice();
-    console.log("item33:", cartItems);
   };
 
   useEffect(() => {
@@ -141,7 +140,7 @@ export default function Cart(props) {
             <div class="col-sm-7">
               {!hideCartItems &&
                 cartItems.map((item) => (
-                  <div>
+                  <div key={item.cartItem.cart_item_id}>
                     <h6>{count++}</h6>
                     <CartItem
                       key={item.cartItem.cart_item_id}

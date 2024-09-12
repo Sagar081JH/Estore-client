@@ -36,8 +36,6 @@ export default function OrderConfirmation({
   const [editedphoneNo, seteditedPhoneNo] = useState(phone.toString());
   const [phoneError, setPhoneError] = useState("");
 
-  console.log("confirmId:", productId);
-
   const handleAddressUpdate = (e) => {
     let pincodeRegex = "^[0-9]{6}$";
     if (
@@ -78,7 +76,6 @@ export default function OrderConfirmation({
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("Address update !", response.data);
             setAddressEditFlag(false);
             notifyUpdateSuccess();
           }
@@ -93,7 +90,6 @@ export default function OrderConfirmation({
 
   const handlePhoneUpdate = (e) => {
     let phoneRegex = "^[0-9]{10}$";
-    console.log("typeof phone:", typeof editedphoneNo);
     if (!editedphoneNo.match(phoneRegex)) {
       setPhoneError("Please ensure 10 digit number!");
     } else {
@@ -106,7 +102,6 @@ export default function OrderConfirmation({
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("Phone update !", response.data);
             setPhoneEditFlag(false);
             notifyUpdateSuccess();
           }

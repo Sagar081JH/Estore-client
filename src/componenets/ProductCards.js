@@ -41,6 +41,7 @@ export default function ProductCards(props) {
         </div>
         {props.products.map((product) => (
           <ProductCard
+            key={product.productId}
             setCartItems={props.setCartItems}
             userDetail={props.userDetail}
             product={product}

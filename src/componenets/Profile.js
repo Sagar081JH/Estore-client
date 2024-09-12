@@ -102,7 +102,6 @@ export default function Profile({ userDetail, handleLogin }) {
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("Name update !", response.data);
             setFirstNameEditFlag(false);
             handleLogin();
             notifyUpdateSuccess();
@@ -128,7 +127,6 @@ export default function Profile({ userDetail, handleLogin }) {
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("DOb update !", response.data);
             setDobEditFlag(false);
             handleLogin();
             notifyUpdateSuccess();
@@ -144,7 +142,6 @@ export default function Profile({ userDetail, handleLogin }) {
 
   const handlePhoneUpdate = (e) => {
     let phoneRegex = "^[0-9]{10}$";
-    console.log("typeof phone:", typeof editedphoneNo);
     if (!editedphoneNo.match(phoneRegex)) {
       setPhoneError("Please ensure 10 digit number!");
     } else {
@@ -157,7 +154,6 @@ export default function Profile({ userDetail, handleLogin }) {
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("Phone update !", response.data);
             setPhoneEditFlag(false);
             handleLogin();
             notifyUpdateSuccess();
@@ -211,7 +207,6 @@ export default function Profile({ userDetail, handleLogin }) {
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log("Address update !", response.data);
             setAddressEditFlag(false);
             handleLogin();
             notifyUpdateSuccess();
@@ -278,7 +273,6 @@ export default function Profile({ userDetail, handleLogin }) {
               setNewConfirmPwd("");
               setPwdUpdateResponse("Password Update Successful !");
             }
-            console.log("Pwd update !", response.data);
           }
         })
         .catch((error) => {

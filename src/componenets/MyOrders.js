@@ -59,7 +59,7 @@ export default function MyOrders({ userId }) {
       {myOrders && myOrders.length !== 0 ? (
         <div className="row">
           {myOrders.map((order) => (
-            <div class="col-12 col-sm-6 my-3">
+            <div key={order.order_id} class="col-12 col-sm-6 my-3">
               <span className="boxShadow p-2 rounded">{count++}</span>
               <div class="card bg-light">
                 <div class="card-body boxShadow">

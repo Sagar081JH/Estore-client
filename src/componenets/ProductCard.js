@@ -26,8 +26,6 @@ export default function ProductCard({
   cartItems,
 }) {
   const productId = product.productId;
-  console.log("buypid:", productId);
-
   const handleAddToCart = (e) => {
     if (isAuthenticated) {
       let user_id = userDetail.user.userId;
@@ -55,8 +53,6 @@ export default function ProductCard({
   };
 
   const handleBuyNow = (id) => {
-    console.log("BuyPro : ", product);
-    console.log("BuyProid : ", id);
     if (isAuthenticated) {
       axios
         .post(`${Base_URL}/orders`, [
@@ -67,9 +63,7 @@ export default function ProductCard({
         ])
         .then((response) => {
           if (response.status === 200) {
-            let res = response.data;
             notifyBuyNowSuccess();
-            console.log("buyNow :", res);
           }
         })
         .catch((error) => {
@@ -87,9 +81,7 @@ export default function ProductCard({
         .delete(`${Base_URL}/products/${productId}`)
         .then((response) => {
           if (response.status === 200) {
-            let res = response.data;
             notifyDeleteProductSuccess();
-            console.log("deltetProduct :", res);
           }
         })
         .catch((error) => {

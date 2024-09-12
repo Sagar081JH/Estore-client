@@ -447,7 +447,6 @@ function App() {
       .get(`${Base_URL}/actuator/health`)
       .then((response) => {
         setHealthStatus(response.data.status);
-        console.log("health:", response.data.status);
       })
       .catch((error) => console.error(error));
   };
@@ -467,7 +466,6 @@ function App() {
   };
   const [sortBy, setSortBy] = useState("default");
   const sortProductsBy = (sortBy) => {
-    console.log("sort :", sortBy);
     axios
       .get(`${Base_URL}/products/sort?sortBy=${sortBy}`)
       .then((response) => {
